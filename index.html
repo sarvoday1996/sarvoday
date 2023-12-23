@@ -74,17 +74,28 @@
     </footer>
 
     <script>
-        function submitForm() {
-            var name = document.getElementById('name').value;
-            
-            var subject = document.getElementById('subject').value;
-            var message = document.getElementById('message').value;
+    function submitForm() {
+        var name = document.getElementById('name').value;
+       
+        var subject = document.getElementById('subject').value;
+        var message = document.getElementById('message').value;
 
-            var mailtoLink = 'mailto:sarvodaynitsri@gmail.com?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent( name + ''+'%0A%0A'+   message);
+        // Add a hyphen between name and subject in the email subject
+        var mailtoSubject = name + ' - ' + subject;
 
-            window.location.href = mailtoLink;
-        }
-    </script>
+        // Include only email and message in the email body
+        var bodyText =  message;
+
+        var mailtoLink = 'mailto:sarvodaynitsri@gmail.com?subject=' + encodeURIComponent(mailtoSubject) + '&body=' + encodeURIComponent(bodyText);
+
+         // Create an anchor element
+        var mailtoAnchor = document.createElement('a');
+        mailtoAnchor.href = mailtoLink;
+
+        // Trigger a click event on the anchor element
+        mailtoAnchor.click();
+    }
+   </script>
 
 </body>
 </html>
