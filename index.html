@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sarvoday Kumar</title> <!-- Corrected the closing tag for title -->
+    <title>Sarvoday Kumar</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -46,7 +46,7 @@
         <h2>B.Tech- Electrical Engineering</h2>
         <p>Just Transition</p>
     </section>
-   
+    
     <section>
         <h2>Impact of increased EV penetration on the grid.</h2>
         <p>Greening mobility with optimal allocation of resources</p>
@@ -54,23 +54,39 @@
 
     <section>
         <h2>Contact Me</h2>
-        <form action="mailto:2021pcv5358@mnit.ac.in" method="post" enctype="text/plain">
+        <form id="contactForm">
             <label for="name">Name:</label>
             <input type="text" id="name" name="name" required>
 
-            <label for="Subject">Subject:</label>
-            <input type="text" id="message" name="email" required>
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+
+            <label for="subject">Subject:</label>
+            <input type="text" id="subject" name="subject" required>
 
             <label for="message">Message:</label>
-            <textarea id="message" name="message" rows="7" required></textarea>
+            <textarea id="message" name="message" rows="4" required></textarea>
 
-            <input type="submit" value="Submit">
+            <input type="button" value="Submit" onclick="submitForm()">
         </form>
     </section>
 
     <footer>
-        <p>&copy; 2023 Sarvoday kumar. All rights reserved.</p>
+        <p>&copy; 2023 Your Name. All rights reserved.</p>
     </footer>
+
+    <script>
+        function submitForm() {
+            var name = document.getElementById('name').value;
+            var email = document.getElementById('email').value;
+            var subject = document.getElementById('subject').value;
+            var message = document.getElementById('message').value;
+
+            var mailtoLink = 'mailto:sarvodaynitsri@gmail.com?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent('Name: ' + name + '%0AEmail: ' + email + '%0AMessage: ' + message);
+
+            window.location.href = mailtoLink;
+        }
+    </script>
 
 </body>
 </html>
