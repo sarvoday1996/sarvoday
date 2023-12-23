@@ -80,7 +80,7 @@
             var subject = document.getElementById('subject').value;
             var message = document.getElementById('message').value;
 
-            var mailtoLink = 'mailto:sarvodaynitsri@gmail.com?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent('Name: ' + name +  'Message: ' + message);
+            var mailtoLink = 'mailto:sarvodaynitsri@gmail.com?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent( + name + '%0A%0A'+  + message);
 
             window.location.href = mailtoLink;
         }
