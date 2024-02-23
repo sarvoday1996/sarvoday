@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sarvoday Kumar</title>
-    <style>
+   <style>
     body {
         font-family: Arial, sans-serif;
         margin: 0;
@@ -16,17 +16,23 @@
         background-color: #333;
         color: #fff;
         padding: 1em;
-        overflow: hidden; /* Clear the float */
-    }
-
-    header img {
-        float: left; /* Float the image to the left */
-        margin-right: 20px; /* Add some margin between the image and content */
-        max-height: 100px; /* Set maximum height as per your requirement */
     }
 
     .header-content {
-        overflow: hidden; /* Clear the float */
+        display: flex;
+        align-items: center; /* Align items vertically */
+        justify-content: space-between; /* Distribute items evenly */
+        max-width: 800px; /* Set maximum width */
+        margin: 0 auto; /* Center the header content */
+    }
+
+    .header-content img {
+        max-height: 100px; /* Set maximum height as per your requirement */
+        margin-right: 20px; /* Add some margin between the image and content */
+    }
+
+    .header-content div {
+        text-align: center; /* Center the content text */
     }
 
     .header-content h1,
@@ -48,7 +54,8 @@
         background-color: #333;
         color: #fff;
     }
-    </style>
+</style>
+
 
 </head>
 <body>
