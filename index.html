@@ -5,40 +5,56 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sarvoday Kumar</title>
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f4f4f4;
-        }
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #f4f4f4;
+    }
 
-        header {
-            background-color: #333;
-            color: #fff;
-            text-align: center;
-            padding: 1em;
-        }
+    header {
+        background-color: #333;
+        color: #fff;
+        padding: 1em;
+        overflow: hidden; /* Clear the float */
+    }
 
-        section {
-            max-width: 800px;
-            margin: 20px auto;
-            padding: 20px;
-            background-color: #fff;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        }
+    header img {
+        float: left; /* Float the image to the left */
+        margin-right: 20px; /* Add some margin between the image and content */
+        max-height: 100px; /* Set maximum height as per your requirement */
+    }
 
-        footer {
-            text-align: center;
-            padding: 1em;
-            background-color: #333;
-            color: #fff;
-        }
+    .header-content {
+        overflow: hidden; /* Clear the float */
+    }
+
+    .header-content h1,
+    .header-content p {
+        margin: 0; /* Remove default margin */
+    }
+
+    section {
+        max-width: 800px;
+        margin: 20px auto;
+        padding: 20px;
+        background-color: #fff;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    footer {
+        text-align: center;
+        padding: 1em;
+        background-color: #333;
+        color: #fff;
+    }
     </style>
+
 </head>
 <body>
 
 <header>
-    <img src="SARVO PIC.jpg" alt="Description of the image">
+    <img src="SARVOPIC.jpg" alt="sarvoday's Image">
     <div class="header-content">
         <h1>Sarvoday Kumar</h1>
         <p>Welcome!</p>
