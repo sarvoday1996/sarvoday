@@ -1,138 +1,178 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sarvoday Kumar</title>
- <style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sarvoday Kumar</title>
+  
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  
+  <style>
     body {
-        font-family: Arial, sans-serif;
-        margin: 0;
-        padding: 0;
-        background-color: #f4f4f4;
+      font-family: 'Inter', sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f9fafb;
+      color: #333;
     }
 
     header {
-        background-color: #90EE90;
-        color: #fff;
-        padding: 1em;
-        overflow: hidden; /* Clear the float */
+      background: linear-gradient(135deg, #4caf50, #2e8b57);
+      color: white;
+      text-align: center;
+      padding: 2em 1em;
     }
 
     header img {
-        float: left; /* Float the image to the left */
-        margin-right: 20px; /* Add some margin between the image and content */
-        max-height: 100px; /* Set maximum height as per your requirement */
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      border: 4px solid white;
+      margin-bottom: 1em;
     }
 
-    .header-content {
-        overflow: hidden; /* Clear the float */
+    header h1 {
+      margin: 0.2em 0;
+      font-size: 2rem;
     }
 
-    .header-content h1,
-    .header-content p {
-        margin: 0; /* Remove default margin */
+    header p {
+      margin: 0.5em 0;
+    }
+
+    .resume-btn {
+      display: inline-block;
+      margin-top: 10px;
+      padding: 10px 20px;
+      background-color: white;
+      color: #2e8b57;
+      font-weight: 600;
+      border-radius: 8px;
+      text-decoration: none;
+      transition: 0.3s;
+    }
+
+    .resume-btn:hover {
+      background-color: #f1f1f1;
     }
 
     section {
-        max-width: 800px;
-        margin: 20px auto;
-        padding: 20px;
-        background-color: #fff;
-        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      max-width: 800px;
+      margin: 20px auto;
+      padding: 20px;
+      background-color: #fff;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+
+    section h2 {
+      color: #2e8b57;
+      margin-bottom: 10px;
+    }
+
+    a {
+      color: #2e8b57;
+      text-decoration: none;
+      font-weight: 600;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+
+    /* Contact Form */
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    input, textarea {
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      font-size: 1rem;
+    }
+
+    input[type="button"] {
+      background-color: #2e8b57;
+      color: white;
+      cursor: pointer;
+      border: none;
+      transition: 0.3s;
+    }
+
+    input[type="button"]:hover {
+      background-color: #256d47;
     }
 
     footer {
-        text-align: center;
-        padding: 1em;
-        background-color: #333;
-        color: #fff;
+      text-align: center;
+      padding: 1em;
+      background-color: #2e2e2e;
+      color: #fff;
+      margin-top: 40px;
     }
-</style>
-
-
-
-
+  </style>
 </head>
 <body>
 
 <header>
-    <img src="sarvo_img.jpg" alt="sarvoday's Image">
-    <div class="header-content">
-        <h1>Sarvoday Kumar</h1>
-        <p>Welcome to my webpage!</p>
-        <p> <a href="https://www.overleaf.com/download/project/61e0da71c4ee9fbe67b87f8b/build/18fd2ed098b-67a4c94f7e0717b8/output/output.pdf?compileGroup=standard&clsiserverid=clsi-pre-emp-n2d-b-f-5php&enable_pdf_caching=true&popupDownload=true">Here is my resume, have a look at it.</a> </p>
-    </div>
+  <img src="sarvo_img.jpg" alt="Sarvoday's Image">
+  <h1>Sarvoday Kumar</h1>
+  <p>Associate Energy Market Analyst - Energy Exemplar</p>
+  <a href="sarvoday-cv.pdf" class="resume-btn" target="_blank">📄 View / Download Resume</a>
 </header>
-    <section>
-        <h2>B.Tech- Electrical Engineering</h2>
-        <p> Worked on the design of wind, battery hydrid system for battrey sizing using MATLAB. </p>
-        <p>2014-18</p>
-    </section>
-        <section>
-        <h2>M.Tech- Renewable Energy Engineering</h2>
-        <p>2021-23</p>
-        <p> Financial implication of EVs on generation expansion plans, NET-ZERO universities and campuses- A case study on MNIT Jaipur. </p> 
-        <p>Worked with <a href="https://www.linkedin.com/in/rohitbhakar/">Prof. Rohit Bhakar</a> and <a href="https://www.linkedin.com/in/dr-parul-mathuria-a0b6b33b/">Dr. Parul Mathuria</a>.</p>
-    
-    </section>
-    
-    <section>
-        <h2>Centre for Social and Economic Progress</h2>
-        <p>Financial implication of EVs on exchequer and DISCOMs, Demand estimation for different vehicle form factors.</p>
-        <p>Worked with <a href="https://www.linkedin.com/in/tongia/">Dr. Rahul Tongia</a> and <a href="https://www.linkedin.com/in/shyamasisdas/">Shyamasis Das</a>.</p>
 
-    </section>
-    <section>
-        <h2>Current Position</h2>
-        <p>Associate Energy Market Analyst- Energy Exemplar</p>
-        
-        </section>    
+<section>
+  <h2>B.Tech - Electrical Engineering</h2>
+  <p>Worked on the design of wind, battery hybrid system for battery sizing using MATLAB.</p>
+  <p><strong>2014 - 2018</strong></p>
+</section>
 
-    <section>
-        <h2>Contact Me</h2>
-        <form id="contactForm">
-            <label for="name">Name:</label>
-            <input type="text" id="name" name="name" required>
+<section>
+  <h2>M.Tech - Renewable Energy Engineering</h2>
+  <p><strong>2021 - 2023</strong></p>
+  <p>Financial implication of EVs on generation expansion plans, Net-Zero universities and campuses - A case study on MNIT Jaipur.</p>
+  <p>Worked with <a href="https://www.linkedin.com/in/rohitbhakar/">Prof. Rohit Bhakar</a> and <a href="https://www.linkedin.com/in/dr-parul-mathuria-a0b6b33b/">Dr. Parul Mathuria</a>.</p>
+</section>
 
+<section>
+  <h2>Centre for Social and Economic Progress</h2>
+  <p>Financial implication of EVs on exchequer and DISCOMs, Demand estimation for different vehicle form factors.</p>
+  <p>Worked with <a href="https://www.linkedin.com/in/tongia/">Dr. Rahul Tongia</a> and <a href="https://www.linkedin.com/in/shyamasisdas/">Shyamasis Das</a>.</p>
+</section>
 
-            <label for="subject">Subject:</label>
-            <input type="text" id="subject" name="subject" required>
+<section>
+  <h2>Contact Me</h2>
+  <form id="contactForm">
+    <input type="text" id="name" name="name" placeholder="Your Name" required>
+    <input type="text" id="subject" name="subject" placeholder="Subject" required>
+    <textarea id="message" name="message" rows="4" placeholder="Your Message" required></textarea>
+    <input type="button" value="Send Message" onclick="submitForm()">
+  </form>
+</section>
 
-            <label for="message">Message:</label>
-            <textarea id="message" name="message" rows="4" required></textarea>
+<footer>
+  <p>&copy; 2024 Sarvoday Kumar. All rights reserved.</p>
+</footer>
 
-            <input type="button" value="Submit" onclick="submitForm()">
-        </form>
-    </section>
+<script>
+  function submitForm() {
+    var name = document.getElementById('name').value;
+    var subject = document.getElementById('subject').value;
+    var message = document.getElementById('message').value;
 
-    <footer>
-        <p>&copy; 2024 Sarvoday Kumar. All rights reserved.</p>
-    </footer>
+    var mailtoSubject = name + ' - ' + subject;
+    var bodyText = message;
 
-    <script>
-    function submitForm() {
-        var name = document.getElementById('name').value;
-       
-        var subject = document.getElementById('subject').value;
-        var message = document.getElementById('message').value;
+    var mailtoLink = 'mailto:sarvodaynitsri@gmail.com?subject=' 
+                     + encodeURIComponent(mailtoSubject) 
+                     + '&body=' + encodeURIComponent(bodyText);
 
-        // Add a hyphen between name and subject in the email subject
-        var mailtoSubject = name + ' - ' + subject;
-
-        // Include only email and message in the email body
-        var bodyText =  message;
-
-        var mailtoLink = 'mailto:sarvodaynitsri@gmail.com?subject=' + encodeURIComponent(mailtoSubject) + '&body=' + encodeURIComponent(bodyText);
-
-         // Create an anchor element
-        var mailtoAnchor = document.createElement('a');
-        mailtoAnchor.href = mailtoLink;
-
-        // Trigger a click event on the anchor element
-        mailtoAnchor.click();
-    }
-   </script>
+    window.location.href = mailtoLink;
+  }
+</script>
 
 </body>
 </html>
