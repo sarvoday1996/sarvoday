@@ -32,26 +32,26 @@
     }
 
     .container{
-      max-width: 900px;
+      max-width: 1200px;
       margin: 18px auto;
       background: var(--surface);
       border-radius: 10px;
       box-shadow: 0 10px 24px rgba(0,0,0,.06);
       overflow: hidden;
-      display: flex;
-      flex-direction: column;
+      display: grid;
+      grid-template-columns: 280px 1fr; /* sidebar + main */
     }
 
     /* Header */
     header{
+      grid-column: 1 / -1;
       background: #f5f5f5;
       text-align: center;
       padding: 28px 16px 20px;
       border-bottom: 1px solid var(--border);
     }
     header img{
-      width: 120px;
-      height: 120px;
+      width: 120px; height: 120px;
       border-radius: 50%;
       border: 3px solid var(--border);
       box-shadow: 0 2px 6px rgba(0,0,0,.1);
@@ -66,6 +66,7 @@
 
     /* Sticky nav */
     nav{
+      grid-column: 1 / -1;
       position: sticky; top: 0; z-index: 20;
       background: #e5e7eb;
       border-bottom:1px solid var(--border);
@@ -76,6 +77,22 @@
       color: var(--text); text-decoration:none; border-radius:6px; transition:.25s;
     }
     nav a:hover{ background: var(--highlight); color: #111; }
+
+    /* Sidebar */
+    aside{
+      background: #f3f4f6;
+      border-right:1px solid var(--border);
+      padding: 20px;
+    }
+    aside h3{
+      margin: 18px 0 8px;
+      font-size: 1.05rem;
+      color: var(--text-strong);
+      border-bottom: 2px solid var(--highlight);
+      padding-bottom: 6px;
+    }
+    aside ul{ margin: 6px 0 12px; padding-left: 18px; }
+    aside p{ margin: 6px 0; }
 
     /* Main content */
     main{ padding: 22px; }
@@ -92,33 +109,6 @@
     .job .meta{ margin: 0 0 8px; font-style: italic; font-size: .95rem; color: #4b5563; }
     ul{ padding-left: 20px; margin: 8px 0; }
 
-    /* Accordion panels */
-    .accordion h3{
-      margin: 18px 0 0;
-      padding: 10px;
-      background: #f3f4f6;
-      border: 1px solid var(--border);
-      border-radius: 6px;
-      cursor: pointer;
-      font-size: 1.05rem;
-      color: var(--text-strong);
-    }
-    .accordion h3::after{
-      content: " ▾";
-      font-size: .9rem;
-      color: #555;
-      float: right;
-    }
-    .accordion h3.active::after{ content: " ▴"; }
-    .accordion .content{
-      padding: 10px 14px;
-      background: #fff;
-      border-left: 1px solid var(--border);
-      border-right: 1px solid var(--border);
-      border-bottom: 1px solid var(--border);
-      border-radius: 0 0 6px 6px;
-    }
-
     /* Contact form */
     #contact form{ display:flex; flex-direction: column; gap: 10px; }
     input, textarea{
@@ -130,16 +120,36 @@
     }
     .btn:hover{ background: var(--accent-dark); }
 
-    /* Footer */
     footer{
+      grid-column: 1 / -1;
       text-align:center; padding: 14px 10px;
       background:#f5f5f5; border-top:1px solid var(--border);
       font-size: .9rem; color:#111;
     }
 
-    /* Collapse only on mobile */
+    /* Mobile: stack layout & collapsible sidebar */
     @media (max-width: 900px){
-      .accordion .content{ display: none; }
+      .container{
+        display: flex;
+        flex-direction: column;
+      }
+      aside{
+        border-right:none;
+        border-top:1px solid var(--border);
+        background: #fff;
+      }
+      aside h3{
+        border: 1px solid var(--border);
+        background:#f3f4f6;
+        padding: 10px;
+        border-radius: 6px;
+        cursor: pointer;
+        margin: 12px 0 0;
+      }
+      aside h3::after{ content: " ▾"; float: right; color: #555; }
+      aside h3.active::after{ content: " ▴"; }
+      aside .content{ display: none; padding: 8px 14px; }
+      aside ul, aside p{ padding-left: 16px; }
     }
   </style>
 </head>
@@ -161,14 +171,42 @@
       </div>
     </header>
 
-    <!-- Sticky Nav -->
+    <!-- Nav -->
     <nav>
       <a href="#experience">Experience</a>
       <a href="#education">Education</a>
       <a href="#research">Research</a>
-      <a href="#tools">Skills</a>
       <a href="#contact">Contact</a>
     </nav>
+
+    <!-- Sidebar -->
+    <aside>
+      <h3>Tools &amp; Languages</h3>
+      <div class="content" style="display:block;">
+        <ul>
+          <li>PLEXOS</li><li>CSharp</li><li>Python</li><li>R</li>
+          <li>MS Excel</li><li>GAMS</li><li>AWS Cloud</li><li>STATA</li>
+        </ul>
+      </div>
+
+      <h3>Publications</h3>
+      <div class="content" style="display:block;">
+        <p>IEEE – ICONAT | Reports</p>
+      </div>
+
+      <h3>Others</h3>
+      <div class="content" style="display:block;">
+        <p>GATE — Electrical Engg</p>
+        <p>JEE-Mains — Qualified</p>
+        <p>NDA-SSB — UPSC</p>
+      </div>
+
+      <h3>Scores</h3>
+      <div class="content" style="display:block;">
+        <p>Class X (CISCE): 81.0%</p>
+        <p>Class XII (CBSE): 88.8%</p>
+      </div>
+    </aside>
 
     <!-- Main -->
     <main>
@@ -210,33 +248,6 @@
         </ul>
       </section>
 
-      <!-- Accordion Panels -->
-      <div class="accordion" id="tools">
-        <h3>Tools &amp; Languages</h3>
-        <div class="content">
-          <ul>
-            <li>PLEXOS</li><li>CSharp</li><li>Python</li><li>R</li>
-            <li>MS Excel</li><li>GAMS</li><li>AWS Cloud</li><li>STATA</li>
-          </ul>
-        </div>
-
-        <h3>Publications</h3>
-        <div class="content"><p>IEEE – ICONAT | Reports</p></div>
-
-        <h3>Others</h3>
-        <div class="content">
-          <p>GATE — Electrical Engg</p>
-          <p>JEE-Mains — Qualified</p>
-          <p>NDA-SSB — UPSC</p>
-        </div>
-
-        <h3>Scores</h3>
-        <div class="content">
-          <p>Class X (CISCE): 81.0%</p>
-          <p>Class XII (CBSE): 88.8%</p>
-        </div>
-      </div>
-
       <section id="contact">
         <h2>Contact Me</h2>
         <form onsubmit="event.preventDefault(); submitForm();">
@@ -266,11 +277,11 @@
     }
     document.getElementById('year').textContent = new Date().getFullYear();
 
-    // Accordion toggle
-    const headers = document.querySelectorAll(".accordion h3");
+    // Accordion toggle only on mobile
+    const headers = document.querySelectorAll("aside h3");
     headers.forEach(h => {
       h.addEventListener("click", () => {
-        if (window.innerWidth <= 900) { // Only toggle on mobile
+        if (window.innerWidth <= 900) {
           h.classList.toggle("active");
           const content = h.nextElementSibling;
           if (content.style.display === "block") {
