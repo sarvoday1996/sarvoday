@@ -78,7 +78,7 @@
     }
     nav a:hover{ background: var(--highlight); color: #111; }
 
-    /* Sidebar (desktop default) */
+    /* Sidebar */
     aside{
       background: #f3f4f6;
       border-right:1px solid var(--border);
@@ -127,7 +127,7 @@
       font-size: .9rem; color:#111;
     }
 
-    /* Mobile: hide sidebar and use off-canvas */
+    /* Mobile: off-canvas sidebar with top toggle */
     @media (max-width: 900px){
       .container{
         display: flex;
@@ -148,26 +148,19 @@
       }
       aside.open{ transform: translateX(0); }
 
-      /* floating button */
+      /* top toggle button */
       .sidebar-toggle{
         position: fixed;
-        bottom: 20px; right: 20px;
+        top: 10px; right: 10px;
         background: var(--accent);
         color: #fff;
         border: none;
-        border-radius: 50%;
-        width: 56px; height: 56px;
-        font-size: 1.4rem;
+        border-radius: 6px;
+        padding: 8px 12px;
+        font-size: 1rem;
         box-shadow: 0 4px 8px rgba(0,0,0,0.2);
         cursor: pointer;
         z-index: 1100;
-      }
-      .sidebar-close{
-        display: block;
-        text-align: right;
-        font-size: 1.2rem;
-        cursor: pointer;
-        margin-bottom: 10px;
       }
     }
   </style>
@@ -200,8 +193,6 @@
 
     <!-- Sidebar -->
     <aside id="sidebar">
-      <div class="sidebar-close" onclick="toggleSidebar()">❌ Close</div>
-
       <h3>Tools &amp; Languages</h3>
       <ul>
         <li>PLEXOS</li><li>CSharp</li><li>Python</li><li>R</li>
@@ -269,7 +260,7 @@
     </footer>
   </div>
 
-  <!-- Floating button for mobile -->
+  <!-- Toggle button for mobile -->
   <button class="sidebar-toggle" onclick="toggleSidebar()">☰</button>
 
   <script>
@@ -284,7 +275,7 @@
     }
     document.getElementById('year').textContent = new Date().getFullYear();
 
-    // Sidebar toggle for mobile
+    // Sidebar toggle for mobile (double click = open/close)
     function toggleSidebar(){
       document.getElementById("sidebar").classList.toggle("open");
     }
