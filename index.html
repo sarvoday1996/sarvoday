@@ -149,7 +149,7 @@
       }
       aside.open{ transform: translateX(0); }
 
-      /* headings become collapsible only on mobile */
+      /* collapsible only on mobile */
       aside h3{
         cursor: pointer;
         padding: 10px;
@@ -167,7 +167,7 @@
       aside .content { display: none; }
       aside .content.open { display: block; padding: 6px 10px; }
 
-      /* top-left toggle button */
+      /* toggle button */
       .sidebar-toggle{
         position: fixed;
         top: 60px; left: 10px;
@@ -180,6 +180,14 @@
         box-shadow: 0 4px 8px rgba(0,0,0,0.2);
         cursor: pointer;
         z-index: 1100;
+      }
+      /* when sidebar is open → expand button into full bar */
+      .sidebar-toggle.open{
+        left: 0; top: 0;
+        width: 100%;
+        border-radius: 0;
+        text-align: right;
+        padding: 12px 16px;
       }
     }
   </style>
@@ -304,7 +312,10 @@
 
     // Sidebar toggle for mobile
     function toggleSidebar(){
-      document.getElementById("sidebar").classList.toggle("open");
+      const sidebar = document.getElementById("sidebar");
+      const btn = document.querySelector(".sidebar-toggle");
+      sidebar.classList.toggle("open");
+      btn.classList.toggle("open");
     }
 
     // Accordion only on mobile
