@@ -39,12 +39,11 @@
       box-shadow: 0 10px 24px rgba(0,0,0,.06);
       overflow: hidden;
       display: grid;
-      grid-template-columns: 280px 1fr; /* desktop: sidebar + main */
+      grid-template-columns: 1fr;
     }
 
     /* Header */
     header{
-      grid-column: 1 / -1;
       background: #f5f5f5;
       text-align: center;
       padding: 28px 16px 20px;
@@ -66,7 +65,6 @@
 
     /* Sticky nav */
     nav{
-      grid-column: 1 / -1;
       position: sticky; top: 0; z-index: 20;
       background: #e5e7eb;
       border-bottom:1px solid var(--border);
@@ -78,7 +76,7 @@
     }
     nav a:hover{ background: var(--highlight); color: #111; }
 
-    /* Sidebar (desktop default: expanded) */
+    /* Sidebar: default desktop (visible) */
     aside{
       background: #fdfdfd;
       border-right:1px solid var(--border);
@@ -93,7 +91,7 @@
     }
     aside ul{ margin: 6px 0 12px; padding-left: 18px; }
     aside p{ margin: 6px 0; }
-    aside .content{ display: block; } /* expanded by default on desktop */
+    aside .content{ display: block; }
 
     /* Main content */
     main{ padding: 22px; }
@@ -122,18 +120,31 @@
     .btn:hover{ background: var(--accent-dark); }
 
     footer{
-      grid-column: 1 / -1;
       text-align:center; padding: 14px 10px;
       background:#f5f5f5; border-top:1px solid var(--border);
       font-size: .9rem; color:#111;
     }
 
-    /* Mobile: off-canvas sidebar */
-    @media (max-width: 900px){
+    /* Desktop layout */
+    @media (min-width: 901px){
       .container{
-        display: flex;
-        flex-direction: column;
+        display: grid;
+        grid-template-columns: 260px 1fr;
       }
+      aside{
+        position: fixed;
+        top: 0; left: 0;
+        height: 100%;
+        width: 260px;
+        overflow-y: auto;
+      }
+      .container main, .container header, .container nav, .container footer{
+        margin-left: 260px;
+      }
+    }
+
+    /* Mobile layout: hidden sidebar until ☰ */
+    @media (max-width: 900px){
       aside{
         position: fixed;
         top: 0; left: 0;
@@ -149,7 +160,6 @@
       }
       aside.open{ transform: translateX(0); }
 
-      /* collapsible headings only on mobile */
       aside h3{
         cursor: pointer;
         padding: 10px;
@@ -166,32 +176,57 @@
       aside h3.active::after { content: "▴"; }
       aside .content { display: none; }
       aside .content.open { display: block; padding: 6px 10px; }
+    }
 
-      /* toggle button */
-      .sidebar-toggle{
-        position: fixed;
-        top: 60px; left: 10px;
-        background: var(--accent);
-        color: #fff;
-        border: none;
-        border-radius: 6px;
-        padding: 8px 12px;
-        font-size: 1rem;
-        box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-        cursor: pointer;
-        z-index: 1101;
-      }
-      .sidebar-toggle.open{
-        top: 0; left: 0;
-        width: 260px;
-        border-radius: 0;
-        text-align: right;
-        padding: 12px 16px;
-      }
+    /* ☰ button */
+    .sidebar-toggle{
+      position: fixed;
+      top: 10px; left: 10px;
+      background: var(--accent);
+      color: #fff;
+      border: none;
+      border-radius: 6px;
+      padding: 6px 10px;
+      font-size: 1rem;
+      box-shadow: 0 4px 8px rgba(0,0,0,.2);
+      cursor: pointer;
+      z-index: 1101;
     }
   </style>
 </head>
 <body>
+
+  <!-- Sidebar -->
+  <aside id="sidebar">
+    <h3>Tools &amp; Languages</h3>
+    <div class="content">
+      <ul>
+        <li>PLEXOS</li><li>CSharp</li><li>Python</li><li>R</li>
+        <li>MS Excel</li><li>GAMS</li><li>AWS Cloud</li><li>STATA</li>
+      </ul>
+    </div>
+
+    <h3>Publications</h3>
+    <div class="content">
+      <p>IEEE – ICONAT | Reports</p>
+    </div>
+
+    <h3>Others</h3>
+    <div class="content">
+      <p>GATE — Electrical Engg</p>
+      <p>JEE-Mains — Qualified</p>
+      <p>NDA-SSB — UPSC</p>
+    </div>
+
+    <h3>Scores</h3>
+    <div class="content">
+      <p>Class X (CISCE): 81.0%</p>
+      <p>Class XII (CBSE): 88.8%</p>
+    </div>
+  </aside>
+
+  <!-- Toggle button for mobile -->
+  <button class="sidebar-toggle" onclick="toggleSidebar()">☰</button>
 
   <div class="container">
 
@@ -216,35 +251,6 @@
       <a href="#research">Research</a>
       <a href="#contact">Contact</a>
     </nav>
-
-    <!-- Sidebar -->
-    <aside id="sidebar">
-      <h3>Tools &amp; Languages</h3>
-      <div class="content">
-        <ul>
-          <li>PLEXOS</li><li>CSharp</li><li>Python</li><li>R</li>
-          <li>MS Excel</li><li>GAMS</li><li>AWS Cloud</li><li>STATA</li>
-        </ul>
-      </div>
-
-      <h3>Publications</h3>
-      <div class="content">
-        <p>IEEE – ICONAT | Reports</p>
-      </div>
-
-      <h3>Others</h3>
-      <div class="content">
-        <p>GATE — Electrical Engg</p>
-        <p>JEE-Mains — Qualified</p>
-        <p>NDA-SSB — UPSC</p>
-      </div>
-
-      <h3>Scores</h3>
-      <div class="content">
-        <p>Class X (CISCE): 81.0%</p>
-        <p>Class XII (CBSE): 88.8%</p>
-      </div>
-    </aside>
 
     <!-- Main -->
     <main>
@@ -294,9 +300,6 @@
     </footer>
   </div>
 
-  <!-- Toggle button for mobile -->
-  <button class="sidebar-toggle" onclick="toggleSidebar()">☰</button>
-
   <script>
     function submitForm(){
       const name = document.getElementById('name').value.trim();
@@ -312,9 +315,7 @@
     // Sidebar toggle
     function toggleSidebar(){
       const sidebar = document.getElementById("sidebar");
-      const btn = document.querySelector(".sidebar-toggle");
       sidebar.classList.toggle("open");
-      btn.classList.toggle("open");
     }
 
     // Accordion (mobile only)
@@ -341,7 +342,6 @@
       const diffX = touchEndX - touchStartX;
       if (diffX < -50 && window.innerWidth <= 900) {
         sidebar.classList.remove("open");
-        document.querySelector(".sidebar-toggle").classList.remove("open");
       }
     });
   </script>
