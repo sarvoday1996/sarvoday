@@ -147,21 +147,21 @@
         padding: 20px;
       }
       aside.open{ transform: translateX(0); }
+    }
 
-      /* top toggle button */
-      .sidebar-toggle{
-        position: fixed;
-        top: 10px; left: 10px;
-        background: var(--accent);
-        color: #fff;
-        border: none;
-        border-radius: 6px;
-        padding: 8px 12px;
-        font-size: 1rem;
-        box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-        cursor: pointer;
-        z-index: 1100;
-      }
+    /* ☰ button at top-most left */
+    .sidebar-toggle{
+      position: fixed;
+      top: 0; left: 0;
+      background: var(--accent);
+      color: #fff;
+      border: none;
+      border-radius: 0 0 6px 0; /* rounded inside */
+      padding: 8px 12px;
+      font-size: 1rem;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+      cursor: pointer;
+      z-index: 1101;
     }
   </style>
 </head>
@@ -261,7 +261,7 @@
   </div>
 
   <!-- Toggle button for mobile -->
-  <button class="sidebar-toggle" onclick="toggleSidebar()">☰</button>
+  <button class="sidebar-toggle">☰</button>
 
   <script>
     function submitForm(){
@@ -275,10 +275,31 @@
     }
     document.getElementById('year').textContent = new Date().getFullYear();
 
-    // Sidebar toggle for mobile (double click = open/close)
-    function toggleSidebar(){
-      document.getElementById("sidebar").classList.toggle("open");
-    }
+    const sidebar = document.getElementById("sidebar");
+    const btn = document.querySelector(".sidebar-toggle");
+
+    // Single click toggles sidebar
+    btn.addEventListener("click", () => {
+      sidebar.classList.toggle("open");
+    });
+
+    // Double click closes sidebar
+    btn.addEventListener("dblclick", () => {
+      sidebar.classList.remove("open");
+    });
+
+    // Swipe left closes sidebar on mobile
+    let touchStartX = 0;
+    sidebar.addEventListener("touchstart", (e) => {
+      touchStartX = e.changedTouches[0].clientX;
+    });
+    sidebar.addEventListener("touchend", (e) => {
+      const touchEndX = e.changedTouches[0].clientX;
+      const diffX = touchEndX - touchStartX;
+      if (diffX < -50 && window.innerWidth <= 900) {
+        sidebar.classList.remove("open");
+      }
+    });
   </script>
 </body>
 </html>
