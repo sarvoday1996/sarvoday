@@ -78,7 +78,7 @@
     }
     nav a:hover{ background: var(--highlight); color: #111; }
 
-    /* Sidebar */
+    /* Sidebar (desktop default: expanded) */
     aside{
       background: #f3f4f6;
       border-right:1px solid var(--border);
@@ -93,6 +93,7 @@
     }
     aside ul{ margin: 6px 0 12px; padding-left: 18px; }
     aside p{ margin: 6px 0; }
+    aside .content{ display: block; } /* always expanded on desktop */
 
     /* Main content */
     main{ padding: 22px; }
@@ -127,7 +128,7 @@
       font-size: .9rem; color:#111;
     }
 
-    /* Mobile: off-canvas sidebar with top toggle */
+    /* Mobile: off-canvas sidebar with collapsible sections */
     @media (max-width: 900px){
       .container{
         display: flex;
@@ -148,10 +149,28 @@
       }
       aside.open{ transform: translateX(0); }
 
-      /* top toggle button */
+      /* headings become collapsible only on mobile */
+      aside h3{
+        cursor: pointer;
+        padding: 10px;
+        margin: 8px 0;
+        background: #e5e7eb;
+        border-radius: 4px;
+        font-size: 1rem;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        border-bottom: none;
+      }
+      aside h3::after { content: "▾"; }
+      aside h3.active::after { content: "▴"; }
+      aside .content { display: none; }
+      aside .content.open { display: block; padding: 6px 10px; }
+
+      /* top-left toggle button */
       .sidebar-toggle{
         position: fixed;
-        top: 10px; left: 10px;
+        top: 60px; left: 10px;
         background: var(--accent);
         color: #fff;
         border: none;
@@ -194,22 +213,30 @@
     <!-- Sidebar -->
     <aside id="sidebar">
       <h3>Tools &amp; Languages</h3>
-      <ul>
-        <li>PLEXOS</li><li>CSharp</li><li>Python</li><li>R</li>
-        <li>MS Excel</li><li>GAMS</li><li>AWS Cloud</li><li>STATA</li>
-      </ul>
+      <div class="content">
+        <ul>
+          <li>PLEXOS</li><li>CSharp</li><li>Python</li><li>R</li>
+          <li>MS Excel</li><li>GAMS</li><li>AWS Cloud</li><li>STATA</li>
+        </ul>
+      </div>
 
       <h3>Publications</h3>
-      <p>IEEE – ICONAT | Reports</p>
+      <div class="content">
+        <p>IEEE – ICONAT | Reports</p>
+      </div>
 
       <h3>Others</h3>
-      <p>GATE — Electrical Engg</p>
-      <p>JEE-Mains — Qualified</p>
-      <p>NDA-SSB — UPSC</p>
+      <div class="content">
+        <p>GATE — Electrical Engg</p>
+        <p>JEE-Mains — Qualified</p>
+        <p>NDA-SSB — UPSC</p>
+      </div>
 
       <h3>Scores</h3>
-      <p>Class X (CISCE): 81.0%</p>
-      <p>Class XII (CBSE): 88.8%</p>
+      <div class="content">
+        <p>Class X (CISCE): 81.0%</p>
+        <p>Class XII (CBSE): 88.8%</p>
+      </div>
     </aside>
 
     <!-- Main -->
@@ -275,10 +302,21 @@
     }
     document.getElementById('year').textContent = new Date().getFullYear();
 
-    // Sidebar toggle for mobile (double click = open/close)
+    // Sidebar toggle for mobile
     function toggleSidebar(){
       document.getElementById("sidebar").classList.toggle("open");
     }
+
+    // Accordion only on mobile
+    document.querySelectorAll("#sidebar h3").forEach(h => {
+      h.addEventListener("click", () => {
+        if (window.innerWidth <= 900) {
+          h.classList.toggle("active");
+          const content = h.nextElementSibling;
+          content.classList.toggle("open");
+        }
+      });
+    });
   </script>
 </body>
 </html>
