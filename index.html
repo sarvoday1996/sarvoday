@@ -39,7 +39,7 @@
       box-shadow: 0 10px 24px rgba(0,0,0,.06);
       overflow: hidden;
       display: grid;
-      grid-template-columns: 280px 1fr; /* desktop: sidebar + main */
+      grid-template-columns: 280px 1fr; /* sidebar + main on desktop */
     }
 
     /* Header */
@@ -127,7 +127,7 @@
       font-size: .9rem; color:#111;
     }
 
-    /* Mobile: stack layout & move sidebar below contact */
+    /* Mobile: stack layout & sidebar before contact */
     @media (max-width: 900px){
       .container{
         display: flex;
@@ -140,8 +140,9 @@
         border-top:1px solid var(--border); 
         background: #fff;
       }
-      #contact{ order: 1; }  /* Contact appears before sidebar */
-      
+      #contact{ order: 3; }
+      footer{ order: 4; }
+
       /* accordion style for mobile */
       aside h3{
         border: 1px solid var(--border);
@@ -183,6 +184,35 @@
       <a href="#research">Research</a>
       <a href="#contact">Contact</a>
     </nav>
+
+    <!-- Sidebar -->
+    <aside>
+      <h3>Tools &amp; Languages</h3>
+      <div class="content" style="display:block;">
+        <ul>
+          <li>PLEXOS</li><li>CSharp</li><li>Python</li><li>R</li>
+          <li>MS Excel</li><li>GAMS</li><li>AWS Cloud</li><li>STATA</li>
+        </ul>
+      </div>
+
+      <h3>Publications</h3>
+      <div class="content" style="display:block;">
+        <p>IEEE – ICONAT | Reports</p>
+      </div>
+
+      <h3>Others</h3>
+      <div class="content" style="display:block;">
+        <p>GATE — Electrical Engg</p>
+        <p>JEE-Mains — Qualified</p>
+        <p>NDA-SSB — UPSC</p>
+      </div>
+
+      <h3>Scores</h3>
+      <div class="content" style="display:block;">
+        <p>Class X (CISCE): 81.0%</p>
+        <p>Class XII (CBSE): 88.8%</p>
+      </div>
+    </aside>
 
     <!-- Main -->
     <main>
@@ -234,35 +264,6 @@
         </form>
       </section>
     </main>
-
-    <!-- Sidebar -->
-    <aside>
-      <h3>Tools &amp; Languages</h3>
-      <div class="content" style="display:block;">
-        <ul>
-          <li>PLEXOS</li><li>CSharp</li><li>Python</li><li>R</li>
-          <li>MS Excel</li><li>GAMS</li><li>AWS Cloud</li><li>STATA</li>
-        </ul>
-      </div>
-
-      <h3>Publications</h3>
-      <div class="content" style="display:block;">
-        <p>IEEE – ICONAT | Reports</p>
-      </div>
-
-      <h3>Others</h3>
-      <div class="content" style="display:block;">
-        <p>GATE — Electrical Engg</p>
-        <p>JEE-Mains — Qualified</p>
-        <p>NDA-SSB — UPSC</p>
-      </div>
-
-      <h3>Scores</h3>
-      <div class="content" style="display:block;">
-        <p>Class X (CISCE): 81.0%</p>
-        <p>Class XII (CBSE): 88.8%</p>
-      </div>
-    </aside>
 
     <!-- Footer -->
     <footer>
