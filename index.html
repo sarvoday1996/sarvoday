@@ -1,304 +1,294 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Sarvoday Kumar - CV</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Sarvoday Kumar — CV</title>
+
+  <!-- Fonts & Icons -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
   <style>
-    body {
-      font-family: 'Inter', sans-serif;
-      margin: 0;
-      background: #f9fafb;
-      color: #374151;
-      scroll-behavior: smooth;
-    }
-    .container {
-      display: grid;
-      grid-template-columns: 270px 1fr;
-      max-width: 1200px;
-      margin: auto;
-      background: #fff;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
-      border-radius: 8px;
-      overflow: hidden;
-    }
-    aside {
-      background: #f3f4f6;
-      padding: 20px;
-      border-right: 1px solid #e5e7eb;
-    }
-    aside h3 {
-      margin-top: 20px;
-      border-bottom: 2px solid #f59e0b;
-      padding-bottom: 5px;
-      color: #1f2937;
-    }
-    header {
-      grid-column: span 2;
-      background: #f5f5f5;
-      color: #111;
-      text-align: center;
-      padding: 30px 20px;
-    }
-    header img {
-      width: 120px;
-      height: 120px;
-      border-radius: 50%;
-      border: 3px solid #e5e7eb;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-    }
-    header h1 {
-      margin: 10px 0 5px;
-      font-size: 1.8rem;
-    }
-    header p {
-      margin: 3px 0;
-    }
-    .socials a {
-      margin: 0 8px;
-      color: #2563eb;
-      font-size: 1.2rem;
-      text-decoration: none;
-      transition: 0.3s;
-    }
-    .socials a:hover {
-      color: #f59e0b;
-    }
-    /* 🔗 Nav Bar */
-    nav {
-      grid-column: span 2;
-      background: #e5e7eb;
-      text-align: center;
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-      border-bottom: 1px solid #d1d5db;
-    }
-    nav a {
-      display: inline-block;
-      padding: 12px 20px;
-      color: #374151;
-      font-weight: 600;
-      text-decoration: none;
-      transition: 0.3s;
-    }
-    nav a:hover {
-      background: #f59e0b;
-      color: #111;
-    }
-    main {
-      padding: 20px;
-    }
-    section {
-      margin-bottom: 30px;
-    }
-    section h2 {
-      border-bottom: 2px solid #f59e0b;
-      padding-bottom: 5px;
-      color: #1f2937;
-      margin-bottom: 15px;
-    }
-    .job {
-      margin-bottom: 20px;
-    }
-    .job h3 {
-      margin: 0;
-      color: #111;
-    }
-    .job p {
-      margin: 2px 0;
-      font-size: 0.95rem;
-    }
-    ul {
-      padding-left: 20px;
-    }
-    /* Contact Form */
-    form {
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-    }
-    input, textarea {
-      padding: 10px;
-      border: 1px solid #d1d5db;
-      border-radius: 6px;
-      font-size: 1rem;
-    }
-    input[type="button"] {
-      background-color: #2563eb;
-      color: white;
-      cursor: pointer;
-      border: none;
-      transition: 0.3s;
-      border-radius: 6px;
-      font-weight: 600;
-    }
-    input[type="button"]:hover {
-      background-color: #1e40af;
-    }
-    footer {
-      grid-column: span 2;
-      text-align: center;
-      padding: 1em;
-      background-color: #f5f5f5;
-      color: #111;
-      border-top: 1px solid #ddd;
-      font-size: 0.9rem;
+    :root{
+      /* Soothing palette */
+      --bg: #f9fafb;
+      --surface: #ffffff;
+      --muted: #f3f4f6;
+      --border: #e5e7eb;
+      --text: #374151;
+      --text-strong:#111827;
+      --accent: #2563eb;   /* calm blue for links/buttons */
+      --accent-dark:#1e40af;
+      --highlight:#f59e0b; /* gentle orange underline for headings */
+      --nav:#e5e7eb;
+      --nav-text:#374151;
+      --link:#2563eb;
+      --link-hover:#f59e0b;
     }
 
-    /* 📱 Responsive layout */
-    @media (max-width: 768px) {
-      .container {
-        grid-template-columns: 1fr;
-      }
-      aside {
-        border-right: none;
-        border-bottom: 1px solid #ddd;
-      }
-      header {
-        padding: 20px 10px;
-      }
-      header img {
-        width: 90px;
-        height: 90px;
-      }
-      main {
-        padding: 15px;
-      }
-      nav a {
-        display: block;
-        border-bottom: 1px solid #d1d5db;
-      }
+    html, body { height: 100%; }
+    body{
+      margin:0;
+      background:var(--bg);
+      color:var(--text);
+      font-family:'Inter', system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      line-height:1.55;
+      scroll-behavior:smooth;
+    }
+
+    .container{
+      max-width: 1200px;
+      margin: 18px auto;
+      background: var(--surface);
+      border-radius: 10px;
+      box-shadow: 0 10px 24px rgba(0,0,0,.06);
+      overflow: hidden;
+      display: grid;
+      grid-template-columns: 280px 1fr;
+    }
+
+    /* Header */
+    header{
+      grid-column: 1 / -1;
+      background: #f5f5f5;
+      text-align: center;
+      padding: 28px 16px 20px;
+      border-bottom: 1px solid var(--border);
+    }
+    header .name{ font-size: 1.9rem; font-weight: 700; color: var(--text-strong); margin: 8px 0 4px; }
+    header .title{ font-weight: 600; color: var(--text); margin: 0 0 8px; }
+    header .contact-line{ margin: 4px 0; font-size: .95rem; }
+    header .socials a{
+      display:inline-block; margin: 0 8px; font-size: 1.15rem; color: var(--link); text-decoration:none; transition:.25s;
+    }
+    header .socials a:hover{ color: var(--link-hover); }
+
+    /* Sticky nav */
+    nav{
+      grid-column: 1 / -1;
+      position: sticky; top: 0; z-index: 20;
+      background: var(--nav);
+      border-bottom:1px solid var(--border);
+      text-align:center;
+    }
+    nav a{
+      display:inline-block; padding: 12px 18px; font-weight:600;
+      color: var(--nav-text); text-decoration:none; border-radius:6px; transition:.25s;
+    }
+    nav a:hover{ background: var(--highlight); color: #111; }
+
+    /* Sidebar */
+    aside{
+      background: var(--muted);
+      border-right:1px solid var(--border);
+      padding: 20px 20px 28px;
+    }
+    aside h3{
+      margin: 18px 0 8px; padding-bottom: 6px;
+      color: var(--text-strong);
+      border-bottom: 2px solid var(--highlight);
+      font-size: 1.05rem;
+    }
+    aside ul{ margin: 6px 0 12px; padding-left: 18px; }
+    aside p{ margin: 6px 0; }
+
+    /* Main content */
+    main{ padding: 22px; }
+    section{ margin-bottom: 28px; }
+    section h2{
+      margin: 0 0 12px;
+      padding-bottom: 6px;
+      color: var(--text-strong);
+      border-bottom: 2px solid var(--highlight);
+      font-size: 1.2rem;
+    }
+    .job{ margin: 0 0 18px; }
+    .job h3{ margin: 0 0 2px; color: var(--text-strong); font-size: 1.05rem; }
+    .job .meta{ margin: 0 0 8px; font-style: italic; font-size: .95rem; color: #4b5563; }
+    ul{ padding-left: 20px; margin: 8px 0; }
+
+    /* Contact form */
+    #contact form{ display:flex; flex-direction: column; gap: 10px; }
+    input, textarea{
+      padding: 10px 12px; border:1px solid var(--border); border-radius: 8px; font-size: 1rem; background: var(--surface);
+    }
+    .btn{
+      display:inline-block; border: none; border-radius: 8px; padding: 10px 14px;
+      background: var(--accent); color: #fff; font-weight: 700; cursor: pointer; transition:.25s;
+    }
+    .btn:hover{ background: var(--accent-dark); }
+
+    /* Footer & subtle print button */
+    footer{
+      grid-column: 1 / -1;
+      background:#f5f5f5; border-top:1px solid var(--border);
+      text-align:center; padding: 14px 10px;
+      color: #111;
+      position: relative;
+    }
+    .print-btn{
+      margin-top: 6px;
+      font-size: .9rem;
+      background: none; border: none; color: #6b7280;
+      cursor: pointer; transition:.2s;
+    }
+    .print-btn:hover{ color:#111; text-decoration: underline; }
+
+    /* Responsive */
+    @media (max-width: 900px){
+      .container{ grid-template-columns: 1fr; }
+      aside{ border-right:none; border-bottom:1px solid var(--border); }
+      nav a{ display:block; border-bottom:1px solid var(--border); }
+    }
+
+    /* Print = CV mode */
+    @media print{
+      :root{ --text: #000; }
+      body{ background:#fff; }
+      .container{ box-shadow:none; border-radius:0; grid-template-columns: 1fr; }
+      nav, #contact, .socials, .print-btn{ display:none !important; }
+      header{ background:#fff; border:none; padding: 6px 0 0; }
+      header .title, header .contact-line{ color:#000; }
+      /* Hide profile photo for a tighter CV look; show name & lines only */
+      header img{ display:none; }
+
+      aside{ background:none; border:none; padding: 0 22px; }
+      main{ padding: 0 22px 22px; }
+      section{ page-break-inside: avoid; }
+
+      section h2{ border-bottom: 1px solid #000; }
+      footer{ background:none; border:none; color:#000; }
+      @page{ size: A4; margin: 14mm; }
     }
   </style>
 </head>
 <body>
 
-<div class="container">
-  <!-- Header -->
-  <header>
-    <img src="sarvo_img.jpg" alt="Sarvoday Kumar">
-    <h1>Sarvoday Kumar</h1>
-    <p><strong>Electrical Engineer</strong></p>
-    <p>📧 2021pcv5358@mnit.ac.in | 📧 sarvodaynitsri@gmail.com | 📱 +91 9680889714</p>
-    <div class="socials">
-      <a href="https://www.linkedin.com/in/sarvoday-kumar" target="_blank"><i class="fab fa-linkedin"></i></a>
-      <a href="https://github.com/sarvoday1996" target="_blank"><i class="fab fa-github"></i></a>
-      <a href="mailto:sarvodaynitsri@gmail.com"><i class="fas fa-envelope"></i></a>
-      <a href="tel:+919680889714"><i class="fas fa-phone"></i></a>
-    </div>
-  </header>
+  <div class="container">
 
-  <!-- Nav -->
-  <nav>
-    <a href="#experience">Experience</a>
-    <a href="#education">Education</a>
-    <a href="#research">Research</a>
-    <a href="#contact">Contact</a>
-  </nav>
-
-  <!-- Sidebar -->
-  <aside>
-    <h3>Tools & Languages</h3>
-    <ul>
-      <li>PLEXOS</li>
-      <li>CSharp</li>
-      <li>Python</li>
-      <li>R</li>
-      <li>MS Excel</li>
-      <li>GAMS</li>
-      <li>AWS Cloud</li>
-      <li>STATA</li>
-    </ul>
-
-    <h3>Publications</h3>
-    <p>IEEE – ICONAT | Reports</p>
-
-    <h3>Others</h3>
-    <p>GATE – Electrical Engg</p>
-    <p>JEE-Mains – Qualified</p>
-    <p>NDA-SSB – UPSC</p>
-
-    <h3>Scores</h3>
-    <p>Class X (CISCE): 81.0%</p>
-    <p>Class XII (CBSE): 88.8%</p>
-  </aside>
-
-  <!-- Main Content -->
-  <main>
-    <section id="experience">
-      <h2>Experience</h2>
-      <div class="job">
-        <h3>Energy Market Analyst – Energy Exemplar (PLEXOS | PLEXOS Cloud)</h3>
-        <p><em>02/2024 – Present | Pune, India</em></p>
-        <ul>
-          <li>Partnered with North American project developers and transmission utilities to model electricity markets, conduct power system analysis, and support transmission planning and capacity expansion initiatives.</li>
-          <li>Addressed client challenges by developing and demonstrating optimization-driven technical and modeling solutions, with recommendations focused on efficient economic dispatch.</li>
-          <li>Utilized strong proficiency in CSharp to debug, enhance, and optimize scripts for the PLEXOS Engine, resolving complex issues related to specific modeling use cases.</li>
-          <li>Collaborated with cross-functional teams to implement CSharp script fixes, ensuring reliability, maintainability, and high performance in production environments.</li>
-        </ul>
+    <!-- Header -->
+    <header>
+      <!-- (Photo optional on web; hidden on print for tighter layout)
+      <img src="sarvo_img.jpg" alt="Sarvoday Kumar" width="120" height="120" style="border-radius:50%; border:3px solid #e5e7eb; box-shadow:0 2px 6px rgba(0,0,0,.1)">
+      -->
+      <div class="name">Sarvoday Kumar</div>
+      <div class="title">Electrical Engineer</div>
+      <div class="contact-line">📧 2021pcv5358@mnit.ac.in &nbsp;|&nbsp; 📧 sarvodaynitsri@gmail.com &nbsp;|&nbsp; 📱 +91 9680889714</div>
+      <div class="socials" aria-label="social links">
+        <a href="https://www.linkedin.com/in/sarvoday-kumar" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+        <a href="https://github.com/sarvoday1996" target="_blank" rel="noopener" aria-label="GitHub"><i class="fab fa-github"></i></a>
+        <a href="mailto:sarvodaynitsri@gmail.com" aria-label="Email"><i class="fas fa-envelope"></i></a>
+        <a href="tel:+919680889714" aria-label="Phone"><i class="fas fa-phone"></i></a>
       </div>
-      <div class="job">
-        <h3>Research Analyst – CSEP Brookings India (Analytica | AWS)</h3>
-        <p><em>01/2023 – 02/2024 | New Delhi, India</em></p>
-        <ul>
-          <li>Worked on Electric Vehicles and Distributed Energy Resources, Power Demand – Supply Analysis, Power Sector Reforms, Policy & Regulations, Renewable Energy, and Energy Efficiency Investments.</li>
-          <li>Performed Energy Market Assessment and Pricing, Techno-Economic Evaluation, and Financial Analysis.</li>
-          <li>Studied the implications of EVs on the exchequer and DISCOM health, and demand estimation for different EV form factors.</li>
-        </ul>
-      </div>
-    </section>
+    </header>
 
-    <section id="education">
-      <h2>Education</h2>
-      <p><strong>M.Tech (Renewable Energy)</strong> – MNIT Jaipur (09/2021 – 07/2023) | CGPA: 8.05</p>
-      <p><strong>B.Tech (Electrical Engineering)</strong> – NIT Srinagar (08/2014 – 08/2018) | CGPA: 6.995</p>
-    </section>
+    <!-- Sticky Nav -->
+    <nav>
+      <a href="#experience">Experience</a>
+      <a href="#education">Education</a>
+      <a href="#research">Research</a>
+      <a href="#contact">Contact</a>
+    </nav>
 
-    <section id="research">
-      <h2>Graduate Research Experience</h2>
+    <!-- Sidebar -->
+    <aside>
+      <h3>Tools &amp; Languages</h3>
       <ul>
-        <li><strong>Plexos | Python | Analytica – Lumina System | Forecasting | Policy & Regulations</strong>: Long-term planning concerning the increased penetration of electric vehicles (EVs) and its impacts on the existing power system.</li>
-        <li><strong>Open Access Implementation for MNIT Jaipur</strong>: April 2022 – December 2022.</li>
-        <li><strong>Net-Zero Academic Campuses</strong>: International Perspective and Case Study for MNIT Jaipur (April 2022 – December 2022).</li>
+        <li>PLEXOS</li>
+        <li>CSharp</li>
+        <li>Python</li>
+        <li>R</li>
+        <li>MS Excel</li>
+        <li>GAMS</li>
+        <li>AWS Cloud</li>
+        <li>STATA</li>
       </ul>
-    </section>
 
-    <section id="contact">
-      <h2>Contact Me</h2>
-      <form id="contactForm">
-        <input type="text" id="name" name="name" placeholder="Your Name" required>
-        <input type="text" id="subject" name="subject" placeholder="Subject" required>
-        <textarea id="message" name="message" rows="4" placeholder="Your Message" required></textarea>
-        <input type="button" value="Send Message" onclick="submitForm()">
-      </form>
-    </section>
-  </main>
+      <h3>Publications</h3>
+      <p>IEEE – ICONAT &nbsp;|&nbsp; Reports</p>
 
-  <!-- Footer -->
-  <footer>
-    <p>&copy; 2024 Sarvoday Kumar. All rights reserved.</p>
-  </footer>
-</div>
+      <h3>Others</h3>
+      <p>GATE — Electrical Engg</p>
+      <p>JEE-Mains — Qualified</p>
+      <p>NDA-SSB — UPSC</p>
 
-<script>
-  function submitForm() {
-    var name = document.getElementById('name').value;
-    var subject = document.getElementById('subject').value;
-    var message = document.getElementById('message').value;
+      <h3>Scores</h3>
+      <p>Class X (CISCE): 81.0%</p>
+      <p>Class XII (CBSE): 88.8%</p>
+    </aside>
 
-    var mailtoSubject = name + ' - ' + subject;
-    var bodyText = message;
+    <!-- Main -->
+    <main>
+      <section id="experience">
+        <h2>Experience</h2>
 
-    var mailtoLink = 'mailto:sarvodaynitsri@gmail.com?subject=' 
-                     + encodeURIComponent(mailtoSubject) 
-                     + '&body=' + encodeURIComponent(bodyText);
+        <div class="job">
+          <h3>Energy Market Analyst — Energy Exemplar (PLEXOS | PLEXOS Cloud)</h3>
+          <div class="meta">02/2024 – Present &nbsp;•&nbsp; Pune, India</div>
+          <ul>
+            <li>Partnered with North American project developers and transmission utilities to model electricity markets, conduct power system analysis, and support transmission planning and capacity expansion initiatives.</li>
+            <li>Addressed client challenges by developing and demonstrating optimization-driven technical and modeling solutions, with recommendations focused on efficient economic dispatch.</li>
+            <li>Utilized strong proficiency in CSharp to debug, enhance, and optimize scripts for the PLEXOS Engine, resolving complex issues related to specific modeling use cases.</li>
+            <li>Collaborated with cross-functional teams to implement CSharp script fixes, ensuring reliability, maintainability, and high performance in production environments.</li>
+          </ul>
+        </div>
 
-    window.location.href = mailtoLink;
-  }
-</script>
+        <div class="job">
+          <h3>Research Analyst — CSEP Brookings India (Analytica | AWS)</h3>
+          <div class="meta">01/2023 – 02/2024 &nbsp;•&nbsp; New Delhi, India</div>
+          <ul>
+            <li>Electric Vehicles and Distributed Energy Resources; Power Demand–Supply Analysis; Power Sector Reforms; Policy &amp; Regulations; Renewable Energy and Energy Efficiency Investments; Energy Market Assessment and Pricing; Techno-Economic Evaluation; Financial Analysis.</li>
+            <li>Implication of EVs on exchequer and DISCOM health; Demand estimation for different EV form factors.</li>
+          </ul>
+        </div>
+      </section>
 
+      <section id="education">
+        <h2>Education</h2>
+        <p><strong>M.Tech (Renewable Energy)</strong> — MNIT Jaipur &nbsp;|&nbsp; 09/2021 – 07/2023 &nbsp;•&nbsp; Jaipur, India &nbsp;|&nbsp; CGPA: 8.05</p>
+        <p><strong>B.Tech (Electrical Engineering)</strong> — NIT Srinagar &nbsp;|&nbsp; 08/2014 – 08/2018 &nbsp;•&nbsp; Srinagar, India &nbsp;|&nbsp; CGPA: 6.995</p>
+      </section>
+
+      <section id="research">
+        <h2>Graduate Research Experience</h2>
+        <ul>
+          <li><strong>Plexos | Python | Analytica (Lumina System) | Forecasting | Policy &amp; Regulations | Renewable Energy &amp; Energy Efficiency Investments</strong>: Long-term planning concerning the increased penetration of electric vehicles (EVs) and its impacts on the existing power system.</li>
+          <li><strong>Open Access Implementation for MNIT Jaipur</strong>: April 2022 – December 2022.</li>
+          <li><strong>Net-Zero Academic Campuses</strong>: International Perspective and Case Study for MNIT Jaipur (April 2022 – December 2022).</li>
+        </ul>
+      </section>
+
+      <section id="contact">
+        <h2>Contact Me</h2>
+        <form onsubmit="event.preventDefault(); submitForm();">
+          <input type="text" id="name" name="name" placeholder="Your Name" required />
+          <input type="text" id="subject" name="subject" placeholder="Subject" required />
+          <textarea id="message" name="message" rows="4" placeholder="Your Message" required></textarea>
+          <button type="button" class="btn" onclick="submitForm()">Send Message</button>
+        </form>
+      </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+      <div>&copy; <span id="year"></span> Sarvoday Kumar. All rights reserved.</div>
+      <button class="print-btn" onclick="window.print()" aria-label="Print CV">🖨 Print CV</button>
+    </footer>
+
+  </div>
+
+  <script>
+    function submitForm(){
+      const name = document.getElementById('name').value.trim();
+      const subject = document.getElementById('subject').value.trim();
+      const message = document.getElementById('message').value.trim();
+      const mailtoSubject = `${name} - ${subject}`;
+      const bodyText = message;
+      const mailtoLink = `mailto:sarvodaynitsri@gmail.com?subject=${encodeURIComponent(mailtoSubject)}&body=${encodeURIComponent(bodyText)}`;
+      window.location.href = mailtoLink;
+    }
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
 </body>
 </html>
