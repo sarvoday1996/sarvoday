@@ -93,9 +93,9 @@
       color: var(--text-strong);
       border-bottom: 2px solid var(--highlight);
       font-size: 1.05rem;
+      cursor: pointer;
     }
-    aside ul{ margin: 6px 0 12px; padding-left: 18px; }
-    aside p{ margin: 6px 0; }
+    aside ul, aside p{ margin: 6px 0 12px; padding-left: 18px; }
 
     /* Main content */
     main{ padding: 22px; }
@@ -131,11 +131,21 @@
       font-size: .9rem;
     }
 
-    /* Responsive */
+    /* Responsive (reorder sidebar after main + accordion) */
     @media (max-width: 900px){
-      .container{ grid-template-columns: 1fr; }
-      aside{ border-right:none; border-bottom:1px solid var(--border); }
-      nav a{ display:block; border-bottom:1px solid var(--border); }
+      .container{
+        display: flex;
+        flex-direction: column;
+      }
+      main{ order: 1; }
+      aside{ order: 2; border-right:none; border-top:1px solid var(--border); }
+
+      /* collapse sections by default */
+      aside .content{ display: none; }
+      aside h3::after{
+        content: " ▾"; font-size: .85rem; color: #555;
+      }
+      aside h3.active::after{ content: " ▴"; }
     }
   </style>
 </head>
@@ -148,7 +158,7 @@
       <img src="sarvo_img.jpg" alt="Sarvoday Kumar">
       <div class="name">Sarvoday Kumar</div>
       <div class="title">Electrical Engineer</div>
-      <div class="contact-line">📧 2021pcv5358@mnit.ac.in &nbsp;|&nbsp; 📧 sarvodaynitsri@gmail.com &nbsp;|&nbsp; 📱 +91 9680889714</div>
+      <div class="contact-line">📧 2021pcv5358@mnit.ac.in | 📧 sarvodaynitsri@gmail.com | 📱 +91 9680889714</div>
       <div class="socials">
         <a href="https://www.linkedin.com/in/sarvoday-kumar" target="_blank"><i class="fab fa-linkedin"></i></a>
         <a href="https://github.com/sarvoday1996" target="_blank"><i class="fab fa-github"></i></a>
@@ -165,56 +175,27 @@
       <a href="#contact">Contact</a>
     </nav>
 
-    <!-- Sidebar -->
-    <aside>
-      <h3>Tools &amp; Languages</h3>
-      <ul>
-        <li>PLEXOS</li>
-        <li>CSharp</li>
-        <li>Python</li>
-        <li>R</li>
-        <li>MS Excel</li>
-        <li>GAMS</li>
-        <li>AWS Cloud</li>
-        <li>STATA</li>
-      </ul>
-
-      <h3>Publications</h3>
-      <p>IEEE – ICONAT &nbsp;|&nbsp; Reports</p>
-
-      <h3>Others</h3>
-      <p>GATE — Electrical Engg</p>
-      <p>JEE-Mains — Qualified</p>
-      <p>NDA-SSB — UPSC</p>
-
-      <h3>Scores</h3>
-      <p>Class X (CISCE): 81.0%</p>
-      <p>Class XII (CBSE): 88.8%</p>
-    </aside>
-
     <!-- Main -->
     <main>
       <section id="experience">
         <h2>Experience</h2>
-
         <div class="job">
           <h3>Energy Market Analyst — Energy Exemplar (PLEXOS | PLEXOS Cloud)</h3>
           <div class="meta">02/2024 – Present • Pune, India</div>
           <ul>
-            <li>Partnered with North American project developers and transmission utilities to model electricity markets, conduct power system analysis, and support transmission planning and capacity expansion initiatives.</li>
-            <li>Addressed client challenges by developing and demonstrating optimization-driven technical and modeling solutions, with recommendations focused on efficient economic dispatch.</li>
-            <li>Utilized strong proficiency in CSharp to debug, enhance, and optimize scripts for the PLEXOS Engine.</li>
-            <li>Collaborated with cross-functional teams to implement CSharp script fixes, ensuring reliability and performance in production environments.</li>
+            <li>Partnered with North American project developers and transmission utilities to model electricity markets and support transmission planning.</li>
+            <li>Developed optimization-driven solutions for efficient economic dispatch.</li>
+            <li>Debugged and optimized scripts for the PLEXOS Engine using CSharp.</li>
+            <li>Collaborated with teams to implement fixes ensuring reliability.</li>
           </ul>
         </div>
-
         <div class="job">
           <h3>Research Analyst — CSEP Brookings India (Analytica | AWS)</h3>
           <div class="meta">01/2023 – 02/2024 • New Delhi, India</div>
           <ul>
-            <li>Electric Vehicles and Distributed Energy Resources; Power Demand–Supply Analysis; Power Sector Reforms; Policy &amp; Regulations; Renewable Energy and Energy Efficiency Investments.</li>
-            <li>Performed Energy Market Assessment and Pricing; Techno-Economic Evaluation; Financial Analysis.</li>
-            <li>Studied implications of EVs on exchequer and DISCOM health; demand estimation for different EV form factors.</li>
+            <li>Worked on EVs, Distributed Energy Resources, Power Demand–Supply Analysis, Policy & Regulations, Renewable Energy, and Efficiency Investments.</li>
+            <li>Performed Energy Market Assessment, Pricing, Techno-Economic Evaluation, and Financial Analysis.</li>
+            <li>Studied implications of EVs on exchequer and DISCOM health.</li>
           </ul>
         </div>
       </section>
@@ -228,9 +209,9 @@
       <section id="research">
         <h2>Graduate Research Experience</h2>
         <ul>
-          <li><strong>Plexos | Python | Analytica (Lumina System) | Forecasting | Policy &amp; Regulations</strong>: Long-term planning concerning increased penetration of electric vehicles (EVs) and impacts on the power system.</li>
+          <li><strong>Plexos | Python | Analytica (Lumina System) | Forecasting | Policy & Regulations</strong>: Long-term planning on EV penetration and power system impacts.</li>
           <li><strong>Open Access Implementation for MNIT Jaipur</strong>: April 2022 – December 2022.</li>
-          <li><strong>Net-Zero Academic Campuses</strong>: International Perspective and Case Study for MNIT Jaipur (April 2022 – December 2022).</li>
+          <li><strong>Net-Zero Academic Campuses</strong>: International Perspective & Case Study for MNIT Jaipur (2022).</li>
         </ul>
       </section>
 
@@ -245,14 +226,41 @@
       </section>
     </main>
 
+    <!-- Sidebar -->
+    <aside>
+      <h3>Tools &amp; Languages</h3>
+      <div class="content">
+        <ul>
+          <li>PLEXOS</li><li>CSharp</li><li>Python</li><li>R</li>
+          <li>MS Excel</li><li>GAMS</li><li>AWS Cloud</li><li>STATA</li>
+        </ul>
+      </div>
+
+      <h3>Publications</h3>
+      <div class="content"><p>IEEE – ICONAT | Reports</p></div>
+
+      <h3>Others</h3>
+      <div class="content">
+        <p>GATE — Electrical Engg</p>
+        <p>JEE-Mains — Qualified</p>
+        <p>NDA-SSB — UPSC</p>
+      </div>
+
+      <h3>Scores</h3>
+      <div class="content">
+        <p>Class X (CISCE): 81.0%</p>
+        <p>Class XII (CBSE): 88.8%</p>
+      </div>
+    </aside>
+
     <!-- Footer -->
     <footer>
       &copy; <span id="year"></span> Sarvoday Kumar. All rights reserved.
     </footer>
-
   </div>
 
   <script>
+    // Contact form mailto
     function submitForm(){
       const name = document.getElementById('name').value.trim();
       const subject = document.getElementById('subject').value.trim();
@@ -263,6 +271,22 @@
       window.location.href = mailtoLink;
     }
     document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Accordion behavior for sidebar (mobile only)
+    const headings = document.querySelectorAll("aside h3");
+    headings.forEach(h => {
+      h.addEventListener("click", () => {
+        if (window.innerWidth <= 900) {
+          h.classList.toggle("active");
+          const content = h.nextElementSibling;
+          if (content.style.display === "block") {
+            content.style.display = "none";
+          } else {
+            content.style.display = "block";
+          }
+        }
+      });
+    });
   </script>
 </body>
 </html>
