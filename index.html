@@ -80,7 +80,7 @@
 
     /* Sidebar (desktop default: expanded) */
     aside{
-      background: #f3f4f6;
+      background: #fdfdfd;
       border-right:1px solid var(--border);
       padding: 20px;
     }
@@ -93,7 +93,7 @@
     }
     aside ul{ margin: 6px 0 12px; padding-left: 18px; }
     aside p{ margin: 6px 0; }
-    aside .content{ display: block; } /* always expanded on desktop */
+    aside .content{ display: block; } /* expanded by default on desktop */
 
     /* Main content */
     main{ padding: 22px; }
@@ -128,7 +128,7 @@
       font-size: .9rem; color:#111;
     }
 
-    /* Mobile: off-canvas sidebar with collapsible sections */
+    /* Mobile: off-canvas sidebar */
     @media (max-width: 900px){
       .container{
         display: flex;
@@ -139,9 +139,9 @@
         top: 0; left: 0;
         height: 100%;
         width: 260px;
-        background: #f3f4f6;
+        background: #fdfdfd;
         border-right: 1px solid var(--border);
-        transform: translateX(-100%);
+        transform: translateX(-260px);
         transition: transform 0.3s ease-in-out;
         z-index: 1000;
         overflow-y: auto;
@@ -149,7 +149,7 @@
       }
       aside.open{ transform: translateX(0); }
 
-      /* collapsible only on mobile */
+      /* collapsible headings only on mobile */
       aside h3{
         cursor: pointer;
         padding: 10px;
@@ -179,12 +179,11 @@
         font-size: 1rem;
         box-shadow: 0 4px 8px rgba(0,0,0,0.2);
         cursor: pointer;
-        z-index: 1100;
+        z-index: 1101;
       }
-      /* when sidebar is open → expand button into full bar */
       .sidebar-toggle.open{
-        left: 0; top: 0;
-        width: 100%;
+        top: 0; left: 0;
+        width: 260px;
         border-radius: 0;
         text-align: right;
         padding: 12px 16px;
@@ -310,7 +309,7 @@
     }
     document.getElementById('year').textContent = new Date().getFullYear();
 
-    // Sidebar toggle for mobile
+    // Sidebar toggle
     function toggleSidebar(){
       const sidebar = document.getElementById("sidebar");
       const btn = document.querySelector(".sidebar-toggle");
@@ -318,7 +317,7 @@
       btn.classList.toggle("open");
     }
 
-    // Accordion only on mobile
+    // Accordion (mobile only)
     document.querySelectorAll("#sidebar h3").forEach(h => {
       h.addEventListener("click", () => {
         if (window.innerWidth <= 900) {
@@ -327,6 +326,23 @@
           content.classList.toggle("open");
         }
       });
+    });
+
+    // Swipe gesture to close sidebar on mobile
+    let touchStartX = 0;
+    const sidebar = document.getElementById("sidebar");
+
+    sidebar.addEventListener("touchstart", (e) => {
+      touchStartX = e.changedTouches[0].clientX;
+    });
+
+    sidebar.addEventListener("touchend", (e) => {
+      const touchEndX = e.changedTouches[0].clientX;
+      const diffX = touchEndX - touchStartX;
+      if (diffX < -50 && window.innerWidth <= 900) {
+        sidebar.classList.remove("open");
+        document.querySelector(".sidebar-toggle").classList.remove("open");
+      }
     });
   </script>
 </body>
